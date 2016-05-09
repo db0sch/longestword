@@ -1,0 +1,17 @@
+<h1>Pages#game</h1>
+
+<h2>Welcome to the longest word-game !</h2>
+
+<p>Here is your grid :</p>
+ <!-- il faut afficher la grille ici -->
+<%= @grid %>
+
+<form action="/score">
+  <label for="question">What's your best shot?</label>
+  <input type="hidden" name='grid' value='<%= @grid %>'>
+  <input type="hidden" name='start' value='<%= @start_time %>'>
+  <input type="text" id="question" name="attempt" placeholder="any word?">
+  <input type="submit" value="Go on!">
+</form>
+<!-- formulaire pour entrer le mot -->
+<!-- bouton pour envoyer le mot => action "/score"-->
