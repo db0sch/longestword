@@ -1,13 +1,18 @@
-<h1>Pages#score</h1>
+<div class="wrapper">
+  <h2 class='text-center'>Result</h2>
+  <p>Your word: <%= @attempt %></p>
+  
+  <p>Time taken to answer: <%= @result[:time] %> </p>
+  
+  <p>Translation: <%= @result[:translation] %> </p>
+  
+  <p>Your score: <%= @result[:score] %></p>
+  
+  <p>Message: <%= @result[:message] %></p>
+  
+  <%= link_to "Play Again?", "/game", class:"btn btn-danger" %>
+</div>
 
-<p>Your word: <%= @attempt %></p>
-
-<p>Time taken to answer: <%= @result[:time] %> </p>
-
-<p>Translation: <%= @result[:translation] %> </p>
-
-<p>Your score: <%= @result[:score] %></p>
-
-<p>Message: <%= @result[:message] %></p>
-
-<%= link_to "Play Again?", "/game" %>
+<div class="aside text-center">
+  <p class="score"><%= @total %></p>
+</div>

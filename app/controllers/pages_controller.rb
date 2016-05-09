@@ -2,9 +2,11 @@ require 'open-uri'
 require 'json'
 
 class PagesController < ApplicationController
+
   def game
     @grid = generate_grid(9)
     @start_time = Time.now
+    @total = session[:total].nil? ? session[:total] = 0 : session[:total]
   end
 
   def score
@@ -13,6 +15,8 @@ class PagesController < ApplicationController
     @start_time = Time.parse(params[:start])
     @end_time = Time.now
     @result = run_game(@attempt, @grid, @start_time, @end_time)
+    # session[:total] += @result[:score]
+    @total = session[:total].nil? ? @result[:score] : session[:total] += @result[:score]
   end
 
 

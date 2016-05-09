@@ -1,17 +1,27 @@
-<h1>Pages#game</h1>
 
-<h2>Welcome to the longest word-game !</h2>
+<div class="wrapper text-center">    
+    <h1>Welcome to the longest word-game !</h1>
+    
+    <p>The grid:</p>
+     <!-- il faut afficher la grille ici -->
+    <ul class="list-inline">
+      <% @grid.each do |letter| %>
+        <li><%= letter %></li>
+      <% end %>
+    </ul>
 
-<p>Here is your grid :</p>
- <!-- il faut afficher la grille ici -->
-<%= @grid %>
+    <form action="/score">
+      <label for="question">What's your best shot?</label>
+      <input type="hidden" name='grid' value='<%= @grid %>'>
+      <input type="hidden" name='start' value='<%= @start_time %>'>
+      <input type="text" id="question" name="attempt" placeholder="any word?">
+      <input type="submit" class="btn btn-primary" value="Go on!">
+    </form>
+    <!-- formulaire pour entrer le mot -->
+    <!-- bouton pour envoyer le mot => action "/score"-->
+    <%= link_to "Reload?", "/game", class:"btn btn-danger" %>
+</div>
 
-<form action="/score">
-  <label for="question">What's your best shot?</label>
-  <input type="hidden" name='grid' value='<%= @grid %>'>
-  <input type="hidden" name='start' value='<%= @start_time %>'>
-  <input type="text" id="question" name="attempt" placeholder="any word?">
-  <input type="submit" value="Go on!">
-</form>
-<!-- formulaire pour entrer le mot -->
-<!-- bouton pour envoyer le mot => action "/score"-->
+<div class="aside text-center">
+  <p class="score"><%= @total %></p>
+</div>

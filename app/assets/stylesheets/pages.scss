@@ -1,3 +1,32 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #E4F6F6;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.wrapper {
+  margin-top: 100px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 1px 1px 1px lightgrey;
+  border-radius: 5px;
+}
+
+.aside {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: darkblue;
+  color: white;
+  padding: 20px;
+}
+
+.aside .score {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px;
+}
