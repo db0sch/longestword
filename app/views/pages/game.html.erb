@@ -12,7 +12,7 @@
 
     <form action="/score">
       <label for="question">What's your best shot?</label>
-      <input type="hidden" name='grid' value='<%= @grid %>'>
+      <input type="hidden" name='grid' value='<%= @grid.join('') %>'>
       <input type="hidden" name='start' value='<%= @start_time %>'>
       <input type="text" id="question" name="attempt" placeholder="any word?">
       <input type="submit" class="btn btn-primary" value="Go on!">

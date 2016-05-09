@@ -2,7 +2,7 @@
   <h2 class='text-center'>Result</h2>
   <p>Your word: <%= @attempt %></p>
   
-  <p>Time taken to answer: <%= @result[:time] %> </p>
+  <p>Time taken to answer: <%= @result[:time].round %> secondes </p>
   
   <p>Translation: <%= @result[:translation] %> </p>
   

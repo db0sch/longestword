@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'game'
 
 class PagesController < ApplicationController
 
@@ -11,12 +12,10 @@ class PagesController < ApplicationController
 
   def score
     @attempt = params[:attempt]
-    @grid = params[:grid]
+    @grid = params[:grid].split('')
     @start_time = Time.parse(params[:start])
-    @end_time = Time.now
-    @result = run_game(@attempt, @grid, @start_time, @end_time)
-    # session[:total] += @result[:score]
-    @total = session[:total].nil? ? @result[:score] : session[:total] += @result[:score]
+    @result = run_game(@attempt, @grid, @start_time, Time.now)
+    @total = session[:total] += @result[:score]
   end
 
 
